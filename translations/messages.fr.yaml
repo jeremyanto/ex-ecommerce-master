@@ -1,0 +1,37 @@
+Name : Nom
+
+Upload Photo : "Télécharger une photo"
+
+Quantity: Quantité
+
+Price: Prix
+
+Add-cart: Ajouter au panier
+
+Sauvegarder: Sauvegarder
+
+Product: Produit
+
+Delete: Supprimer
+
+table:
+    name: Nom
+    quantity: Quantité
+    price: Prix
+
+
+panier:
+    title: "Panier"
+    date: "Ajouter le :"
+    productTotal: "produits dans le panier"
+    state: "Payé"
+
+produit:
+    title: "Produits"
+    create: "Créer un produit"
+    addCart: "Selectioner la quantité à ajouter"
+
+Error:
+    e403: Tu vas où ? C'est interdit
+    e404: Tu t'es perdu ?
+    e405: Tu l'as cassé !

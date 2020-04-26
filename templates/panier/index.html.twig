@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panier index{% endblock %}
+
+{% block body %}
+    <h1>Panier index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <td>{{'table.product'|trans}}</td>
+                <td>{{'table.quantity'|trans}}</td>
+                <td>{{'table.price'|trans}}</td>
+                <td>{{'table.amount'|trans}}</td>
+                <td>{{'table.action'|trans}}</td>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        {% set total = 0 %}
+        {% set totalProduit = 0 %}
+        {% for contenu in paniers.contenuPaniers %}
+            
+
+                {% set totalProduit = contenu.quantity * contenu.produit.price %}
+                {% set total = total + totalProduit %}
+        
+                <tr>
+                    <td>{{contenu.produit.name}}</td>
+                    <td>{{contenu.quantity}}</td>
+                    <td>{{contenu.produit.price}} $</td>
+                    <td>{{contenu.quantity}}</td>
+                    <td>{{totalProduit}} $</td>
+                    <td><a href="{{path('contenu_panier_delete', {id:contenu.id})}}" class="btn btn-danger">{{'Delete'|trans}}</a></td>
+
+                </tr>
+            {% endfor %}
+                    <a href="{{ path('panier_show', {'id': paniers.id}) }}">show</a>
+                    <a href="{{ path('panier_edit', {'id': paniers.id}) }}">edit</a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('panier_new') }}">Create new</a>
+{% endblock %}

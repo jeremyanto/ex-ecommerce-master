@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit index{% endblock %}
+
+{% block body %}
+    <h1>{{'Product'|trans}}</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{{'table.name'|trans}}</th>
+                <th>Description</th>
+                <th>{{'table.price'|trans}}</th>
+                <th>Stock</th>
+                <th>Photo</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.name }}</td>
+                <td>{{ produit.description }}</td>
+                <td>{{ produit.price }}</td>
+                <td>{{ produit.stock }}</td>
+                <td><img src="{{ asset('/uploads/'~produit.photo) }}" style="max-width: 250px"></td>
+                <td>
+                    <a href="{{ path('produit_show', {'id': produit.id}) }}">show</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a>
+                        <a href="{{ path('produit_delete', {'id': produit.id}) }}">delete</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('produit_new') }}">Create new</a>
+    {% endif %}
+{% endblock %}

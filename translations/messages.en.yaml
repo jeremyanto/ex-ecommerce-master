@@ -1,0 +1,37 @@
+Name : Name
+
+Upload Photo : "Upload Photo"
+
+Quantity : Quantity
+
+Price: Price
+
+Add-cart: Add to cart
+
+Sauvegarder: Save
+
+Product: Product
+
+Delete: Delete
+
+table:
+    name: Name
+    quantity: Quantity
+    price: Price
+
+
+panier:
+    title: "Cart"
+    date: "Added at :"
+    state: "Paid"
+    productTotal: "products in the cart"
+
+produit:
+    title: "Products"
+    create: "Create product"
+    addCart: "Select quantity to add to cart"
+
+Error:
+    e403: Where are you going ? It's forbidden
+    e404: Are you lost ?
+    e405: You broke it !
